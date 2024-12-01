@@ -1,0 +1,19 @@
+<tr>
+    <td><img style="max-width:100px" src="{{ product.thumbnail }}" class="img-fluid img-thumbnail" alt="{{ product.title }}"></td>
+    <td>{{ product.id }}</td>
+    <td>{{ product.category.name }}</td>
+    <td>{{ product.title }}</td>
+    <td>{{ product.description }}</td>
+    <td>{{ product.stock }}</td>
+    <td>&euro;{{ product.price }}</td>
+    <td>
+      <button type="button" class="btn btn-sm btn-warning" hx-target="closest tr" hx-swap="outerHTML"
+        hx-get="/product/update/{{ product.id }}" hx-trigger="click"><i class="bi bi-pencil-square"></i>
+      </button>
+    </td>
+    <td>
+      <button type="button" hx-confirm="confirm delete if id {{ product.id }}" class="btn btn-sm btn-danger" hx-target="#productList" hx-swap="innerHTML"
+      hx-delete="/product/{{  product.id }}" hx-trigger="click"><i class="bi bi-trash"></i>
+      </button>
+    </td>
+  </tr>

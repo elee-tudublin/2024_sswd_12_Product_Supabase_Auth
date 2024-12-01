@@ -1,0 +1,13 @@
+<tr hx-target="this" hx-swap="outerHTML">
+        <td>
+            <input type="text" class="form-control" id="thumbnail" name="thumbnail" value="{{ product.thumbnail }}" required>
+        </td>
+        <td><input type="hidden" class="form-control" id="id" name="id" value="{{ product.id }}"></td>
+        <td>{% include "/product/partials/cat_select.html" ignore missing with context %}</td>
+        <td><input type="text" class="form-control" id="title" name="title" value="{{ product.title }}" required></td>
+        <td><input type="text" class="form-control" id="description" name="description" value="{{ product.description }}" required></td>
+        <td><input type="number" class="form-control" id="stock" name="stock" value="{{ product.stock }}" required></td>
+        <td><input type="number" min="0.01" step="0.01" class="form-control" id="price" name="price" value="{{ product.price }}" required></td>
+        <td><button class="btn btn-primary" hx-put="/product/" hx-include="closest tr">Update</button></td>
+</tr>
+

@@ -11,9 +11,9 @@ def getProduct(id) :
     return dataGetProduct(id)
 
 # add new todo using data access
-def newProduct(input: Product) :
+def newProduct(input: Product, accessToken, refreshToken) :
     # add product (via dataaccess)
-    new_product = dataAddProduct(input)
+    new_product = dataAddProduct(input, accessToken, refreshToken)
 
     # return new product
     return new_product

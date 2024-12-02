@@ -1,0 +1,113 @@
+{
+    "user": {
+        "id": "4f87065c-0ba5-46bf-9208-31e757d386c4",
+        "app_metadata": {
+            "provider": "email",
+            "providers": [
+                "email"
+            ]
+        },
+        "user_metadata": {
+            "email": "user@products.ie",
+            "email_verified": false,
+            "phone_verified": false,
+            "sub": "4f87065c-0ba5-46bf-9208-31e757d386c4"
+        },
+        "aud": "authenticated",
+        "confirmation_sent_at": "2024-12-01T20:11:53.717333Z",
+        "recovery_sent_at": null,
+        "email_change_sent_at": null,
+        "new_email": null,
+        "new_phone": null,
+        "invited_at": null,
+        "action_link": null,
+        "email": "user@products.ie",
+        "phone": "",
+        "created_at": "2024-12-01T20:11:53.684492Z",
+        "confirmed_at": "2024-12-01T20:14:12.039562Z",
+        "email_confirmed_at": "2024-12-01T20:14:12.039562Z",
+        "phone_confirmed_at": null,
+        "last_sign_in_at": "2024-12-01T21:00:26.592868Z",
+        "role": "authenticated",
+        "updated_at": "2024-12-01T21:00:26.595508Z",
+        "identities": [
+            {
+                "id": "4f87065c-0ba5-46bf-9208-31e757d386c4",
+                "identity_id": "0e067810-e926-4d72-9c2b-03130c18c7a8",
+                "user_id": "4f87065c-0ba5-46bf-9208-31e757d386c4",
+                "identity_data": {
+                    "email": "user@products.ie",
+                    "email_verified": false,
+                    "phone_verified": false,
+                    "sub": "4f87065c-0ba5-46bf-9208-31e757d386c4"
+                },
+                "provider": "email",
+                "created_at": "2024-12-01T20:11:53.708559Z",
+                "last_sign_in_at": "2024-12-01T20:11:53.707823Z",
+                "updated_at": "2024-12-01T20:11:53.708559Z"
+            }
+        ],
+        "is_anonymous": false,
+        "factors": null
+    },
+    "session": {
+        "provider_token": null,
+        "provider_refresh_token": null,
+        "access_token": "eyJhbGciOiJIUzI1NiIsImtpZCI6ImdUQkVuWWR6TjJHTXR1QXQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FwanlqZGFkcmZ1ZWp4Y2xreHpoLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiI0Zjg3MDY1Yy0wYmE1LTQ2YmYtOTIwOC0zMWU3NTdkMzg2YzQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzMzMDkwNDI2LCJpYXQiOjE3MzMwODY4MjYsImVtYWlsIjoiZW5kYUBvdXRsb29rLmllIiwicGhvbmUiOiIiLCJhcHBfbWV0YWRhdGEiOnsicHJvdmlkZXIiOiJlbWFpbCIsInByb3ZpZGVycyI6WyJlbWFpbCJdfSwidXNlcl9tZXRhZGF0YSI6eyJlbWFpbCI6ImVuZGFAb3V0bG9vay5pZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicGhvbmVfdmVyaWZpZWQiOmZhbHNlLCJzdWIiOiI0Zjg3MDY1Yy0wYmE1LTQ2YmYtOTIwOC0zMWU3NTdkMzg2YzQifSwicm9sZSI6ImF1dGhlbnRpY2F0ZWQiLCJhYWwiOiJhYWwxIiwiYW1yIjpbeyJtZXRob2QiOiJwYXNzd29yZCIsInRpbWVzdGFtcCI6MTczMzA4NjgyNn1dLCJzZXNzaW9uX2lkIjoiYTIzNTUyMmMtMjU2Yi00MWE2LWIwN2QtYmRjYWU4YzEwMmVhIiwiaXNfYW5vbnltb3VzIjpmYWxzZX0.8EWEXBzssjaJCLWDjkVpODS7Cq3jdh8mLADX2u_1h3I",
+        "refresh_token": "0s72EgXFftnWf7cHvDKvZw",
+        "expires_in": 3600,
+        "expires_at": 1733090426,
+        "token_type": "bearer",
+        "user": {
+            "id": "4f87065c-0ba5-46bf-9208-31e757d386c4",
+            "app_metadata": {
+                "provider": "email",
+                "providers": [
+                    "email"
+                ]
+            },
+            "user_metadata": {
+                "email": "user@products.ie",
+                "email_verified": false,
+                "phone_verified": false,
+                "sub": "4f87065c-0ba5-46bf-9208-31e757d386c4"
+            },
+            "aud": "authenticated",
+            "confirmation_sent_at": "2024-12-01T20:11:53.717333Z",
+            "recovery_sent_at": null,
+            "email_change_sent_at": null,
+            "new_email": null,
+            "new_phone": null,
+            "invited_at": null,
+            "action_link": null,
+            "email": "user@products.ie",
+            "phone": "",
+            "created_at": "2024-12-01T20:11:53.684492Z",
+            "confirmed_at": "2024-12-01T20:14:12.039562Z",
+            "email_confirmed_at": "2024-12-01T20:14:12.039562Z",
+            "phone_confirmed_at": null,
+            "last_sign_in_at": "2024-12-01T21:00:26.592868Z",
+            "role": "authenticated",
+            "updated_at": "2024-12-01T21:00:26.595508Z",
+            "identities": [
+                {
+                    "id": "4f87065c-0ba5-46bf-9208-31e757d386c4",
+                    "identity_id": "0e067810-e926-4d72-9c2b-03130c18c7a8",
+                    "user_id": "4f87065c-0ba5-46bf-9208-31e757d386c4",
+                    "identity_data": {
+                        "email": "user@products.ie",
+                        "email_verified": false,
+                        "phone_verified": false,
+                        "sub": "4f87065c-0ba5-46bf-9208-31e757d386c4"
+                    },
+                    "provider": "email",
+                    "created_at": "2024-12-01T20:11:53.708559Z",
+                    "last_sign_in_at": "2024-12-01T20:11:53.707823Z",
+                    "updated_at": "2024-12-01T20:11:53.708559Z"
+                }
+            ],
+            "is_anonymous": false,
+            "factors": null
+        }
+    }
+}

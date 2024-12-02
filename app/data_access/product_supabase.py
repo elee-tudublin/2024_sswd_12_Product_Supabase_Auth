@@ -3,6 +3,8 @@ from app.models.product import Product
 from starlette.config import Config
 from supabase import create_client, Client
 
+import json
+
 
 # Load environment variables from .env
 config = Config(".env")
@@ -57,9 +59,13 @@ def dataUpdateProduct(product: Product) :
     return response.data[0]
 
 # add product, accepts product object
-def dataAddProduct(product: Product) :
+def dataAddProduct(product: Product, accessToken, refreshToken) :
+
+    supabase.auth.set_session(accessToken, refreshToken)
+
     response = (
-        supabase.table("product")
+        supabase
+        .table("product")
         .insert(product.model_dump()) # convert product object to dict - required by Supabase
         .execute()
     )
@@ -90,3 +96,26 @@ def dataDeleteProduct(id):
         .execute()
     )
     return response.data
+
+
+# Supabase Auth for Python https://supabase.com/docs/reference/python/auth-api
+
+# register new user
+def dataUserRegister(user):
+    response = supabase.auth.sign_up(user.model_dump())
+    return response
+
+# Login
+def dataUserLogin(user):
+    response = supabase.auth.sign_in_with_password(user.model_dump())
+    return response
+
+#Logout
+def dataLogout():
+    response = supabase.auth.sign_out()
+    return "success"
+
+# Get Session
+def dataGetUserSession():
+    response = supabase.auth.get_session()
+    return response

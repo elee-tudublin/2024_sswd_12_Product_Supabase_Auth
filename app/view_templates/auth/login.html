@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include "./common/head.html" ignore missing with context %}
+    <title>Home Page</title>
+</head>
+
+<body>
+    <!-- include navbar from partials -->
+    {% include "./common/nav.html" ignore missing with context %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <h5>Categories</h5>
+                <!-- https://getbootstrap.com/docs/5.3/components/list-group/#links-and-buttons -->
+                <div class="list-group">
+                    {% for category in categories %}
+                    <button class="list-group-item list-group-item-action" hx-target="#productList" hx-swap="innerHTML"
+                        hx-get="/product/bycat/{{  category.id }}" hx-trigger="click">{{ category.name }}</button>
+                    {% endfor %}
+                </div>
+
+            </div>
+            <div class="col-10">
+                <!-- Login Form -->
+                <form class="ms-2 me-auto" hx-post="/auth/login">
+                    <fieldset>
+                        <legend>Login</legend>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </fieldset>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Load common CSS and JS -->
+    {% include "./common/dependencies.html" ignore missing with context %}
+</body>
+
+</html>

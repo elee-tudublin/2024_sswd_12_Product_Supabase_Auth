@@ -6,12 +6,14 @@ from contextlib import asynccontextmanager
 from app.routes.home_routes import router as home_router
 from app.routes.todo_routes import router as todo_router
 from app.routes.product_routes import router as product_router
+from app.routes.auth_routes import router as auth_router
 
 main_router = APIRouter()
 
 main_router.include_router(home_router)
 main_router.include_router(todo_router, prefix="/todo", tags=["todo"])
 main_router.include_router(product_router, prefix="/product", tags=["product"])
+main_router.include_router(auth_router, prefix="/auth", tags=["auth"])
 
 
 # https://stackoverflow.com/questions/71031816/how-do-you-properly-reuse-an-httpx-asyncclient-within-a-fastapi-application

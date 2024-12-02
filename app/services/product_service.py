@@ -27,8 +27,8 @@ def updateProduct(input: Product) :
     return product
 
 
-def deleteProduct(id : int) :
-    result = dataDeleteProduct(id)
+def deleteProduct(id : int, accessToken, refreshToken) :
+    result = dataDeleteProduct(id, accessToken, refreshToken)
 
 def getProductByCat(id: int) :
     return dataGetProductByCat(id)

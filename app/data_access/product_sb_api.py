@@ -62,15 +62,14 @@ def dataUpdateProduct(product: Product) :
 
 # add product, accepts product object
 def dataAddProduct(product: Product, accessToken, refreshToken) :
+    url = 'https://apjyjdadrfuejxclkxzh.supabase.co/rest/v1/product'
 
-    supabase.auth.set_session(accessToken, refreshToken)
-
-    response = (
-        supabase
-        .table("product")
-        .insert(product.model_dump()) # convert product object to dict - required by Supabase
-        .execute()
-    )
+    print('access token: ', accessToken)
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer '+ accessToken
+        }
+    response = httpx.post(url, data= product.model_dump(), headers = headers)
 
     if (response.data) :
         return dataGetProduct(response.data[0]['id'])
@@ -89,9 +88,7 @@ def dataGetCategories():
 
 
 # delete product by id
-def dataDeleteProduct(id, accessToken, refreshToken):
-
-    supabase.auth.set_session(accessToken, refreshToken)
+def dataDeleteProduct(id):
     # select * from product where id = id 
     response = (
         supabase.table("product")

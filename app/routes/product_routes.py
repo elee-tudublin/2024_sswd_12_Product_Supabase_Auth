@@ -52,7 +52,9 @@ def postProduct(request: Request, productData: Annotated[Product, Form()]) :
 
 @router.delete("/{id}")
 def delProduct(request: Request, id: int):
-    deleteProduct(id)
+    accessToken = request.cookies.get('access_token')
+    refreshToken = request.cookies.get('refresh_token')
+    deleteProduct(id, accessToken, refreshToken)
     return templates.TemplateResponse("product/partials/product_list.html", {"request": request, "products": getAllProducts()})
 
 

@@ -65,6 +65,11 @@ def dataAddProduct(product: Product, accessToken, refreshToken) :
 
     supabase.auth.set_session(accessToken, refreshToken)
 
+    # get the authenticted user
+    auth_user = supabase.auth.get_user()
+    # print the user id
+    print('user id: ', auth_user.user.id)
+
     response = (
         supabase
         .table("product")
@@ -115,7 +120,7 @@ def dataUserLogin(user):
     return response
 
 #Logout
-def dataLogout():
+def dataUserLogout():
     response = supabase.auth.sign_out()
     return "success"
 

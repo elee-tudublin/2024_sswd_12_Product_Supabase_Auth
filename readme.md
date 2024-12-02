@@ -30,20 +30,19 @@
 
 The site uses Supabase user accounts and Row Level Security to implement access control. See https://supabase.com/docs/guides/auth
 
-> # Auth
->
-> 
->
-> ## Use Supabase to authenticate and authorize your users.
->
-> 
->
-> There are two parts to every Auth system:
->
-> - **Authentication:** should this person be allowed in? If yes, who are they?
-> - **Authorization:** once they are in, what are they allowed to do?
->
-> Supabase Auth is designed to work either as a standalone  product, or deeply integrated with the other Supabase products. Postgres is at the heart of everything we do, and the Auth system follows this  principle. We leverage Postgres' built-in Auth functionality wherever  possible.
+The diagram below shows the data flow for a user log:
+
+1. The user provides their `credentials` (email and password).
+2. The server uses the credentials to `authenticate` the user via Supabase Auth services.
+3. If successful, Supabase returns and `access token` for the user (plus other user info)
+4. The server responds to the client and sets a `session cookie` containing the `access token`.
+5. The Client includes the `session cookie` in subsequent requests.
+6. The server uses the `access token` to authenticate the user when requesting Supabase actions.
+7. Supabase responds to the server which responds to the client with the result.
+
+![Auth flow](assets/image-20241202214702541-3176024.png)
+
+
 
 ## 1. Supabase Row Level Security (RLS)
 
@@ -62,6 +61,10 @@ Choose the **select template**. By default, this is permissive, giving public re
 ![image-20241201235140085](assets/image-20241201235140085-3097103.png)
 
 Exercise: Add policies which allows Insert, update, and delete to authenticated users only. Ensure that the policies are named appropriately.
+
+For example, the insert policy for authenticated users:
+
+![insert policy for authenticated users](assets/image-20241202215612095-3176574.png)
 
 
 
@@ -283,6 +286,16 @@ def dataAddProduct(product: Product, accessToken, refreshToken) :
 
 
 
-## 4. Not working
+## 4. Exercices
 
-Unfortunately something is not working as expected at this point. `supabase.auth.set_session(accessToken, refreshToken)` as data cannot be inserted, even for  authenticated users. **Can you find the problem?**
+1. Enable updating and deleting of products for authenticated users.
+
+2. Add a logout option to the site based on code provided.
+
+3. When a user is logged in show the logout link, otherwise show the login and register link.
+
+**Advanced:**
+
+1. Modify the product table to include a **user_id** column. This should be set to the id of the logged in user when a new product is added. The `dataAddProduct()` in **data_access/product_supabase.py** includes an example of how to get the id of an authenticated user. 
+
+2. Add policies so that a user can only add, update, or delete products which they added.

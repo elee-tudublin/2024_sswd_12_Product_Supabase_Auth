@@ -13,8 +13,8 @@ def userLogin(user: User) :
     return response
 
 # Logout
-def logout() :
-    return dataLogout()
+def userLogout() :
+    return dataUserLogout()
 
 # Get session
 def getSession() :

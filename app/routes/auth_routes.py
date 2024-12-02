@@ -52,5 +52,19 @@ async def getRegister(request: Request):
 @router.post("/register")
 async def postRegister(request: Request, userForm: Annotated[User, Form()]) :
     auth_user  = userRegister(userForm)
-    print(auth_user.session.access_token)
+    #print(auth_user.session.access_token)
     return RedirectResponse(url="/product/", status_code=status.HTTP_302_FOUND)
+
+@router.get("/logout", response_class=HTMLResponse)
+async def getLogout(request: Request, response: Response) :
+    
+    # logout from Supabase (clear tokens)
+    result = userLogout()
+
+    # set redirect to /product
+    response = RedirectResponse(url="/product/", status_code=status.HTTP_302_FOUND)
+
+    # delete session cookies
+    response.delete_cookie("access_token")
+    response.delete_cookie("redresh_token")
+    return response
